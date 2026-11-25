@@ -1,0 +1,430 @@
+/* ==========================================================================
+   Halla University Startpage Stylesheet (Pixel-matched to design)
+   ========================================================================== */
+
+:root {
+  --bg-page: #f8f9fa;
+  --card-bg: #ffffff;
+  --card-border: #eaecf0;
+  --card-border-subtle: #f1f3f5;
+  --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --card-shadow-hover: 0 6px 18px rgba(0, 0, 0, 0.06);
+
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+
+  --brand-navy: #003366;
+  --brand-blue: #0070c0;
+  --brand-cyan: #00a8ff;
+  --badge-blue-bg: #eff6ff;
+  --badge-blue-text: #2563eb;
+
+  --font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --transition-fast: 0.2s ease;
+}
+
+/* Reset & Basics */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px 60px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Page Container (Max-width 780px for perfect desktop centering) */
+.page-container {
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ==========================================================================
+   1. Halla University Header Card
+   ========================================================================== */
+.halla-header-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.halla-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 12px 28px 12px 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  user-select: none;
+}
+
+.halla-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: #cbd5e1;
+}
+
+.halla-emblem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.halla-brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+}
+
+.univ-ko {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brand-navy);
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+}
+
+.univ-en {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--brand-blue);
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   2. Weather Section
+   ========================================================================== */
+.weather-section {
+  width: 100%;
+}
+
+.weather-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+  margin-bottom: 10px;
+}
+
+.weather-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: -0.2px;
+}
+
+.refresh-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color var(--transition-fast), background-color var(--transition-fast), transform 0.4s ease;
+}
+
+.refresh-btn:hover {
+  color: var(--text-secondary);
+  background-color: #e5e7eb;
+}
+
+.refresh-btn.spinning svg {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Weather Grid & Cards */
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.weather-box {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 18px 18px 14px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.weather-box:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-city {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.4px;
+}
+
+.box-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--badge-blue-text);
+  background-color: var(--badge-blue-bg);
+  padding: 2px 8px;
+  border-radius: 10px;
+  line-height: 1.3;
+}
+
+.box-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 16px;
+}
+
+.box-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.box-icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.box-temp-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-temp {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.box-desc {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.box-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid var(--card-border-subtle);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.box-stat strong {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   3. Quote Panel
+   ========================================================================== */
+.quote-section {
+  width: 100%;
+}
+
+.quote-panel {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 26px 24px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  transition: box-shadow var(--transition-fast);
+}
+
+.quote-panel:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.quote-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--badge-blue-text);
+  background-color: var(--badge-blue-bg);
+  padding: 3px 12px;
+  border-radius: 12px;
+  letter-spacing: -0.2px;
+}
+
+.quote-body {
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.6;
+  letter-spacing: -0.3px;
+  max-width: 620px;
+  word-break: keep-all;
+  transition: opacity 0.2s ease;
+}
+
+.quote-author-name {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: opacity 0.2s ease;
+}
+
+.quote-refresh-btn {
+  background-color: var(--card-bg);
+  border: 1px solid #d1d5db;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
+  margin-top: 4px;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform 0.1s ease;
+}
+
+.quote-refresh-btn:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+  color: var(--text-primary);
+}
+
+.quote-refresh-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   4. Google Search Section (Minimalist Card)
+   ========================================================================== */
+.search-section {
+  width: 100%;
+}
+
+.search-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 8px 14px 8px 18px;
+  box-shadow: var(--card-shadow);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-card:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.15);
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-glass-icon {
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.search-field {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.search-field::placeholder {
+  color: #9ca3af;
+}
+
+.search-submit-btn {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #2563eb;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.search-submit-btn:hover {
+  background-color: #dbeafe;
+  border-color: #93c5fd;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 720px) {
+  body {
+    padding: 20px 14px 40px;
+  }
+
+  .weather-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .quote-panel {
+    padding: 20px 16px;
+  }
+}
