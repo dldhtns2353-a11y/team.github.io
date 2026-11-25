@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <!-- 30주년 방패 엠블럼 -->
+  <g transform="translate(4, 3)">
+    <!-- 방패 외곽 -->
+    <path d="M4 6C4 4.89543 4.89543 4 6 4H44C45.1046 4 46 4.89543 46 6V33C46 44 25 53 25 53C25 53 4 44 4 33V6Z" fill="#111827"/>
+    <path d="M7 7H43V32C43 41.5 25 49.5 25 49.5C25 49.5 7 41.5 7 32V7Z" stroke="#1E293B" stroke-width="1.5"/>
+    
+    <!-- 30 숫자 그래픽 -->
+    <text x="25" y="31" fill="#00A8FF" font-family="'Pretendard', 'Apple SD Gothic Neo', sans-serif" font-weight="800" font-size="20" text-anchor="middle" letter-spacing="-1">30</text>
+    <!-- HALLA 텍스트 -->
+    <text x="25" y="41" fill="#94A3B8" font-family="'Pretendard', 'Apple SD Gothic Neo', sans-serif" font-weight="700" font-size="7" text-anchor="middle" letter-spacing="1.5">HALLA</text>
+  </g>
+
+  <!-- 한라대학교 & HALLA UNIVERSITY 텍스트 -->
+  <g transform="translate(64, 0)">
+    <!-- 한글 교명 -->
+    <text x="0" y="32" fill="#003366" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-weight="700" font-size="23" letter-spacing="-0.8">한라대학교</text>
+    <!-- 영문 교명 -->
+    <text x="1" y="47" fill="#0070C0" font-family="'Pretendard', sans-serif" font-weight="700" font-size="11" letter-spacing="0.8">HALLA UNIVERSITY</text>
+  </g>
+</svg>
